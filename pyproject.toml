@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "totp-gui"
-version = "0.9.0"
+version = "0.9.1"
 authors = [
     { name="Alberto P", email="4104972+alberto743@users.noreply.github.com" },
 ]
