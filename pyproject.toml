@@ -3,16 +3,35 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "totp-gui"
-version = "1.0.0"
-license = {text = "MPL-2.0"}
+version = "0.9.0"
+authors = [
+    { name="Alberto P", email="4104972+alberto743@users.noreply.github.com" },
+]
+description = "Create TOTP authentication code for 2FA and copy it to the clipboard"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MPL-2.0"
+license-files = ["LICENSES/*"]
 dependencies = [
     "PyYAML",
     "pyotp",
     "pyperclip",
 ]
 
+[project.urls]
+Homepage = "https://github.com/alberto743/totp-gui"
+Issues = "https://github.com/alberto743/totp-gui/issues"
+
 
 [project.gui-scripts]
-totp-gui = "totp:main"
+totp-gui = "totp_gui.totp:main"
