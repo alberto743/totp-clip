@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: Copyright © 2025 ENEA
+SPDX-FileContributor: Alberto P
+
+SPDX-License-Identifier: MPL-2.0
+-->
+
 # TOTP GUI
 
 Create TOTP authentication code for 2FA and copy it to the clipboard.

@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: Copyright © 2025 ENEA
+# SPDX-FileContributor: Alberto P
+#
+# SPDX-License-Identifier: MPL-2.0
+
+[project]
+name = "totp-gui"
+version = "1.0.0"
+license = {text = "MPL-2.0"}
+dependencies = [
+    "PyYAML",
+    "pyotp",
+    "pyperclip",
+]
+
+
+[project.gui-scripts]
+totp-gui = "totp:main"
