@@ -5,29 +5,25 @@ SPDX-FileContributor: Alberto P
 SPDX-License-Identifier: MPL-2.0
 -->
 
-# TOTP GUI
+# TOTP-CLIP
 
-Create TOTP authentication code for 2FA and copy it to the clipboard.
+Generate TOTP authentication code for 2FA from a configuration stored in a YAML file with secrets in netrc format and copy it to the clipboard.
 
-## Configuration
+## Configuration (YAML)
+Defaults to `~/totp.yml`.
+``` yaml
+service_name:
+  remote_name: machine item in netrc
+  window_title: title of the window showing the OTP
+  store_clipboard: Boolean option to either store the OTP in the clipboard
+```
 
-### .netrc
-
-Add the following authentication information in the `.netrc` in the root of the home directory, according the the information provided during the setup of the two-factor authentication.
-
-``` Bash
-machine website.tld
-	login username.or.email
-	password authentication.key.2fa
+## Secret storage (netrc).
+Defaults to `~/.netrc`.
+``` shell
+machine remote_name in corresponding YAML
+	login username as show by the TOTP provider
+	password secret key provided during the setup of the two-factor authentication
 ```
 
 Please assure that only the local user may read this file.
-
-### topt.yml
-
-``` yaml
-service_name:
-  remote_name: website.tld              # shall match machine entry in netrc
-  window_title: Title of GUI window
-  store_clipboard: true                 # whether to store OTP in the clipboard
-```

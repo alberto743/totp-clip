@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# SPDX-FileCopyrightText: Copyright © 2025 ENEA
+# SPDX-FileCopyrightText: Copyright © 2023-2026 ENEA
 # SPDX-FileContributor: Alberto P
 #
 # SPDX-License-Identifier: MPL-2.0

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright © 2025 ENEA
+# SPDX-FileCopyrightText: Copyright © 2026 ENEA
 # SPDX-FileContributor: Alberto P
 #
 # SPDX-License-Identifier: MPL-2.0
@@ -8,8 +8,8 @@ requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "totp-gui"
-version = "0.9.1"
+name = "totp-clip"
+version = "0.9.2"
 authors = [
     { name="Alberto P", email="4104972+alberto743@users.noreply.github.com" },
 ]
