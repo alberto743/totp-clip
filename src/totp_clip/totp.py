@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# SPDX-FileCopyrightText: Copyright © 2023-2026 ENEA
+# SPDX-FileCopyrightText: 2023 ENEA
 # SPDX-FileContributor: Alberto P
 #
 # SPDX-License-Identifier: MPL-2.0
@@ -50,7 +50,3 @@ def main():
     config = retrieve_configuration(args.service_name, args.config_filename)
     totp = generate_topt(config['remote_name'])
     display_totp(totp, config['window_title'], config['store_clipboard'])
-
-
-if __name__ == '__main__':
-    main()
