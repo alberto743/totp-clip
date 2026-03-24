@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "totp-clip"
-version = "0.9.4"
+version = "0.9.5"
 authors = [
     { name="Alberto P", email="4104972+alberto743@users.noreply.github.com" },
 ]

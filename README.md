@@ -27,3 +27,17 @@ machine remote_name in corresponding YAML
 ```
 
 Please assure that only the local user may read this file.
+
+## Installation
+
+``` shell
+pipx install totp-clip
+```
+
+## Usage
+
+``` shell
+totp-clip service_name
+```
+
+A shortcut may be manually created to launch the command mentioned.
