@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "totp-clip"
-version = "0.10.2"
+version = "0.10.3"
 authors = [
     { name="Alberto P", email="4104972+alberto743@users.noreply.github.com" },
 ]
@@ -32,7 +32,6 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/alberto743/totp-gui"
 Issues = "https://github.com/alberto743/totp-gui/issues"
-
 
 [project.gui-scripts]
 totp-clip = "totp_clip.totp:main"

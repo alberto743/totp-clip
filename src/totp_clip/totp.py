@@ -6,14 +6,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 import argparse
-import getpass
 from pathlib import Path
 import keyring
-from tkinter import Tk
-from tkinter.ttk import Label, Button
 import yaml
 import pyotp
-import pyperclip
 
 KEYRING_SERVICE_NAME = "totp-clip"
 
@@ -53,6 +49,8 @@ def prompt_bool(question, default=True):
 
 
 def setup_service(service_name, config_filename="totp.yml"):
+    import getpass
+
     services = load_services(config_filename)
 
     if service_name in services and not prompt_bool(
@@ -95,14 +93,16 @@ def generate_topt(remote_name):
 
 
 def display_totp(mytotp, window_title, store_clipboard=True):
-    window = Tk()
-    window.title = window_title
+    from tkinter import Tk, Label
+    import pyperclip
 
-    label = Label(text=mytotp, font=('TkDefaultFont', 24))
+    window = Tk()
+    window.title(window_title)
+
+    label = Label(window, text=mytotp, font=('TkDefaultFont', 24))
     label.pack()
     if store_clipboard:
         pyperclip.copy(mytotp)
-        pyperclip.paste()
 
     window.after(2000,lambda:window.destroy())
     window.mainloop()
