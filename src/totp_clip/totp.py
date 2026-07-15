@@ -102,7 +102,6 @@ def display_totp(mytotp, window_title, store_clipboard=True):
     label.pack()
     if store_clipboard:
         pyperclip.copy(mytotp)
-        pyperclip.paste()
 
     window.after(2000,lambda:window.destroy())
     window.mainloop()
