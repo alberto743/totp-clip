@@ -93,14 +93,13 @@ def generate_topt(remote_name):
 
 
 def display_totp(mytotp, window_title, store_clipboard=True):
-    from tkinter import Tk
-    from tkinter.ttk import Label
+    from tkinter import Tk, Label
     import pyperclip
 
     window = Tk()
-    window.title = window_title
+    window.title(window_title)
 
-    label = Label(text=mytotp, font=('TkDefaultFont', 24))
+    label = Label(window, text=mytotp, font=('TkDefaultFont', 24))
     label.pack()
     if store_clipboard:
         pyperclip.copy(mytotp)
