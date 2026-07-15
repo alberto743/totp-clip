@@ -21,12 +21,15 @@ service_name:
 ## Secret storage (keyring)
 Secrets are stored in the OS-native keyring (e.g. Secret Service on Linux, Keychain on macOS, Credential Locker on Windows) via the [keyring](https://github.com/jaraco/keyring) library, under the service name `totp-clip`.
 
-The `keyring` command line tool is used to store secrets, install it with:
+## Adding a new account
+
 ``` shell
-pipx install keyring
+totp-clip-setup service_name
 ```
 
-Store the secret key provided during the setup of the two-factor authentication with:
+This interactively prompts for the remote name, window title, clipboard preference and the TOTP secret key provided during the setup of the two-factor authentication, then writes the entry to the YAML configuration and stores the secret in the keyring. It can also be used to overwrite an existing entry.
+
+Alternatively, the configuration and the secret can be managed manually: add an entry to the YAML configuration as described above, then store the secret with the `keyring` command line tool (install it with `pipx install keyring`):
 ``` shell
 keyring set totp-clip remote_name
 ```
