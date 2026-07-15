@@ -7,12 +7,14 @@
 
 import argparse
 from pathlib import Path
-import netrc
+import keyring
 from tkinter import Tk
 from tkinter.ttk import Label, Button
 import yaml
 import pyotp
 import pyperclip
+
+KEYRING_SERVICE_NAME = "totp-clip"
 
 
 def retrieve_configuration(service_name, config_filename="totp.yml"):
@@ -22,7 +24,12 @@ def retrieve_configuration(service_name, config_filename="totp.yml"):
 
 
 def generate_topt(remote_name):
-    _, _, key = netrc.netrc().authenticators(remote_name)
+    key = keyring.get_password(KEYRING_SERVICE_NAME, remote_name)
+    if key is None:
+        raise ValueError(
+            f"no secret found in the keyring for {remote_name!r} "
+            f"(service {KEYRING_SERVICE_NAME!r})"
+        )
     totp = pyotp.TOTP(key)
     return totp.now()
 

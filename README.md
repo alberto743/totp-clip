@@ -7,26 +7,30 @@ SPDX-License-Identifier: MPL-2.0
 
 # TOTP-CLIP
 
-Generate TOTP authentication code for 2FA from a configuration stored in a YAML file with secrets in netrc format and copy it to the clipboard.
+Generate TOTP authentication code for 2FA from a configuration stored in a YAML file with secrets in the system keyring and copy it to the clipboard.
 
 ## Configuration (YAML)
 Defaults to `~/totp.yml`.
 ``` yaml
 service_name:
-  remote_name: machine item in netrc
+  remote_name: identifier used to look up the secret in the keyring
   window_title: title of the window showing the OTP
   store_clipboard: Boolean option to either store the OTP in the clipboard
 ```
 
-## Secret storage (netrc).
-Defaults to `~/.netrc`.
+## Secret storage (keyring)
+Secrets are stored in the OS-native keyring (e.g. Secret Service on Linux, Keychain on macOS, Credential Locker on Windows) via the [keyring](https://github.com/jaraco/keyring) library, under the service name `totp-clip`.
+
+The `keyring` command line tool is used to store secrets, install it with:
 ``` shell
-machine remote_name in corresponding YAML
-	login username as show by the TOTP provider
-	password secret key provided during the setup of the two-factor authentication
+pipx install keyring
 ```
 
-Please assure that only the local user may read this file.
+Store the secret key provided during the setup of the two-factor authentication with:
+``` shell
+keyring set totp-clip remote_name
+```
+where `remote_name` matches the corresponding entry in the YAML configuration.
 
 ## Installation
 
